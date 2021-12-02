@@ -1,0 +1,24 @@
+<div class="row">
+  <form [formGroup]="studentForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Surname</mat-label>
+      <input  type="text"  matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Student No</mat-label>
+      <input matInput type="number" formControlName="studentNo">
+    </mat-form-field>
+    </form>
+</div>
+<div class="row">
+  <div class="col">
+    <button (click)="onSubmit()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+</div>

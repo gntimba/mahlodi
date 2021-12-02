@@ -21,12 +21,18 @@ import { MatTableModule } from '@angular/material/table';
 import { from } from 'rxjs';
 
 import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './home/home.component';
+import { StudentComponent } from './student/student.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
-      LoginComponent
+      LoginComponent,
+      HomeComponent,
+      StudentComponent,
+      AttendanceComponent
    ],
   imports: [
     BrowserModule,

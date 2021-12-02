@@ -1,3 +1,4 @@
+import { Student } from './../interface/status';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
@@ -107,4 +108,30 @@ export class AuthService {
     this.router.navigate(['/login']);
     //  localStorage.removeItem(this.REFRESH_TOKEN);
   }
+
+  registerStudent(data:any):Observable<any> {
+
+    const headers= new HttpHeaders({
+         'Content-Type': 'application/json',
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
+     return this.http.post<Student>(`${config.apiUrl}/student`, data, {
+       reportProgress: true,
+       observe: 'events',
+       headers:headers
+     });
+   }
+
+
+  getAttendance():Observable<Student[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))
+      })
+    };
+    const headers= new HttpHeaders({
+         'Content-Type': 'application/json',
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
+     return this.http.get<Student[]>(`${config.apiUrl}/student` , httpOptions);
+   }
 }
