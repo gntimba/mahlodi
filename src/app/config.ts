@@ -1,8 +1,5 @@
 export const config = {
-  apiUrl: 'http://localhost:8086'
-  //apiUrl: 'https://lynxapi-sa-stage.azurewebsites.net'
+ // apiUrl: 'http://localhost:8086'
+  apiUrl: 'https://remote-spring.herokuapp.com'
 };
 
-// stage https://lynxapi-sa-stage.azurewebsites.net
-//prod https://lynxapi-sa.azurewebsites.net
-//debug http://localhost:8086

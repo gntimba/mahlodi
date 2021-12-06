@@ -132,6 +132,6 @@ export class AuthService {
     const headers= new HttpHeaders({
          'Content-Type': 'application/json',
          Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
-     return this.http.get<Student[]>(`${config.apiUrl}/student` , httpOptions);
+     return this.http.get<Student[]>(`${config.apiUrl}/getAttendance` , httpOptions);
    }
 }

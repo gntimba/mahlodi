@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AttendanceComponent implements OnInit {
   student: Student[] = [];
-  displayedColumns: string[] = ['StudentNo', 'firstName', 'lastName', 'id'];
+  displayedColumns: string[] = ['StudentNo', 'firstName', 'status', 'date'];
   dataSource = new MatTableDataSource(this.student);
   constructor(private auth: AuthService) { }
 
@@ -28,5 +28,9 @@ export class AttendanceComponent implements OnInit {
       console.log(error.error);
     });
 
+  }
+
+  initCap(value: string) {
+    return value.charAt(0).toUpperCase() + value.substring(1,value.length).toLowerCase();;
   }
 }
