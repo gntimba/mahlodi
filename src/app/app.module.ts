@@ -19,6 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { from } from 'rxjs';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +29,7 @@ import { AttendanceComponent } from './attendance/attendance.component';
 
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       LoginComponent,
       HomeComponent,
@@ -52,6 +54,10 @@ import { AttendanceComponent } from './attendance/attendance.component';
     MatIconModule,
     MatAutocompleteModule,
     ToastrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
