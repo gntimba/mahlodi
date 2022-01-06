@@ -1,3 +1,7 @@
+<form [formGroup]="date">
+  <p-calendar formControlName="date"></p-calendar><img *ngIf="loading"  height="45px" src="../../assets/images/Ripple-1.4s-200px.gif"/>
+</form>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="StudentNo">
@@ -24,3 +28,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<div class="card">
+  <h5>Vertical</h5>
+  <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+</div>

@@ -1,3 +1,4 @@
+import { attendances } from './../interface/attendances';
 import { Student } from './../interface/status';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -134,4 +135,32 @@ export class AuthService {
          Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
      return this.http.get<Student[]>(`${config.apiUrl}/getAttendance` , httpOptions);
    }
+
+   getWeekly():Observable<attendances[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))
+      })
+    };
+    const headers= new HttpHeaders({
+         'Content-Type': 'application/json',
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
+     return this.http.get<attendances[]>(`${config.apiUrl}/getByWeek` , httpOptions);
+   }
+
+   getAttendanceBydate(date):Observable<Student[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))
+      })
+    };
+    const headers= new HttpHeaders({
+         'Content-Type': 'application/json',
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem(this.ACCESS_TOKEN))})
+     return this.http.get<Student[]>(`${config.apiUrl}/getAttendance?date=${date}` , httpOptions);
+   }
 }
+
+
